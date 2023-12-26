@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+        background-color: black;
+        height: auto;
+        color: white;
+        margin: 0;
+      }
+
+      .header {
+        display: flex;
+        flex-direction: row;
+        box-shadow: 2px 0px 1px whitesmoke;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background-color: black;
+        justify-content: space-between;
+      }
+
+      .right-header {
+        display: flex;
+        flex-direction: row;
+        column-gap: 80px;
+        margin-right: 80px;
+      }
+
+
+      .right-header p {
+        font-size: 20px;
+        color: white;
+        text-align: center;
+        width: 65px;
+        padding-top: 5px;
+        cursor: pointer;
+
+      }
+
+      .right-header p:hover {
+        font-size: 22px;
+      }
+
+      .header-home p{
+        color: rgb(255, 132, 0);
+        
+      }
+
+      .page-title-name {
+        font-size : 25px;
+        margin-left: 50px;
+        color: white;
+      }
+
+
+      .intro-main {
+        display: grid;
+        place-items: center;
+        gap: 70px;
+        padding-top : 300px;
+      }
+
+      .intro-body {
+        display: flex;
+        flex-direction: row;
+        gap: 20px; 
+
+        
+      }
+
+      .intro-info {
+        width:auto;
+        color: white;
+      }
+
+      .highlight-it {
+        color: orange;
+
+      }
+
+      .main-width {
+        width: 370px;
+      }
+      
+
+      .role {
+        color: rgb(7, 176, 249);
+        font-size: 27px;
+      }
+
+      .intro-image {
+        margin-top : 18px;
+        margin-left: 20px;
+        height: 200px;
+        border-radius: 50px;
+      }
+
+      .main-points {
+        line-height: 1.5;
+        font-size: 18px;
+        width: 650px;
+      }
+
+      .programming-lang {
+        display: flex;
+        flex-direction: row;
+        gap: 100px;
+      }
+      .programming-log {
+        height: 60px;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: rgba(238, 238, 241, 0.325) 0px 30px 60px -12px, rgba(208, 207, 207, 0.3) 0px 18px 36px -18px;
+      }
+
+      .programming-name {
+        text-align: center;
+        opacity: 0;
+      }
+
+      .programming-log:hover + .programming-name {
+        opacity: 1;
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      
+      .skills-section {
+        display: flex;
+        gap: 100px;
+        margin-left: 150px;
+        padding-top: 150px;
+      }
+
+      .skills-image {
+        height: 250px;
+        border-radius: 50px;
+      }
+
+      
+
+      .skills-profile1, .skills-profile2, .skills-profile3 {
+        display: flex;
+        flex-direction: row;
+        gap: 120px;
+      }
+
+      .skill-name-progress {
+        display: flex;
+        gap: 20px;
+
+      }
+
+      .skill-img-name {
+        margin-top: 15px;
+        height: 50px;
+        background-color: black;
+        border-radius: 50%;
+      }
+
+      .percent-num80 {
+        position: absolute;
+        margin-top: -40px;
+        margin-left: 118px;
+        font-size: 15px;
+      }
+
+      .percent-num85 {
+        position: absolute;
+        margin-top: -40px;
+        margin-left: 128px;
+        font-size: 15px;
+      }
+
+      .percent-num70 {
+        position: absolute;
+        margin-top: -40px;
+        margin-left: 103px;
+        font-size: 15px;
+      }
+
+      .percent-num75 {
+        position: absolute;
+        margin-top: -40px;
+        margin-left: 112px;
+        font-size: 15px;
+      }
+
+      h3 {
+        font-size: 20px;
+        color: rgba(255, 168, 7, 0.849);
+      }
+
+      .para-size {
+        font-size: 17px;
+      }
+
+      .certifications {
+        margin-left: 150px;
+        margin-top: 70px;
+        display: flex;
+        gap: 120px;
+      }
+      
+      .certification-image {
+        width: 440px;
+        border-radius: 50px;
+      }
+
+      .certify-button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: 35px;
+      }
+
+      .certify-button button {
+        padding: 7px;
+        border-radius: 20px;
+        background-color: rgb(120, 147, 157);
+        color: black;
+        cursor: pointer;
+      }
+
+
+      .js-image {
+        height: 500px;
+      }
+
+      .js-image-grid {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .blur-it {
+        opacity: 0;
+      }
+
+      .image-edit {
+        width:0px;
+        opacity: 0;
+      }
+
+      .image-new {
+        width:100px;
+        opacity:1;
+      }
+
+      .modal {
+        display:none;
+        margin-top: -560px;
+      }
+
+      .modal img {
+        height: 500px;
+      }
+
+      .close {
+        border-radius: 50%;
+        font-size: 20px;
+        position: absolute;
+        margin-left: 65%;
+      }
+
+      .reveal-it {
+        display: flex;
+        opacity: 1;
+        margin-left: 28%;
+      }
+
+      .page3 {
+        padding-top: 200px;
+        padding-bottom: 100px;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 150px;
+        justify-content: center;
+        gap: 100px;
+      }
+
+      .project-assemble {
+        width: 330px;
+        padding: 40px 40px 40px 50px;
+        border-radius: 30px;
+        background-color: black;
+        box-shadow: rgba(125, 118, 118, 0.57) 0px 10px 36px 0px, rgba(131, 125, 125, 0.592) 0px 0px 0px 1px;
+        justify-content: center;
+      }
+
+      .project-name {
+        font-size: 20px;
+        text-align: center;
+        color:rgba(26, 114, 138, 0.918);
+        font-weight: bold;
+      }
+
+      .project-button {
+        padding: 7px;
+        border-radius: 10px;
+        background-color: black;
+        color: whitesmoke;
+        border: 1px solid rgb(22, 156, 171);
+        font-size: 15px;
+        margin-bottom: 15px;
+        cursor: pointer;
+      }
+
+      .middle-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .page4 {
+        padding-top : 180px;
+        
+        /* background-color: green; */
+      }
+
+      .social-media {
+        display: flex;
+        flex-direction: row;
+        gap: 60px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        
+      }
+
+      .social-media p {
+        opacity: 0;
+      }
+
+      
+
+      .social-media-logo-linkedin,  .social-media-logo-github, .social-media-logo-instagram{
+        box-shadow: 0 0 10px rgba(195, 192, 192, 0.5);
+        padding: 8px;
+        border-radius: 20px;    
+      }
+
+      .social-media-logo-instagram:hover {
+        background: linear-gradient(45deg, #2196F3, #4CAF50);
+      }
+      
+      .social-media-logo-linkedin:hover {
+        background: linear-gradient(45deg, #152b3d, #7a807a);
+      }
+      .social-media-logo-github:hover {
+        background: linear-gradient(45deg, #c80404, #f3f5f3);
+      }
+
+      .social-media img:hover + p{
+        opacity: 1;
+      }
+
+      .contact-info {
+        text-align: center;
+        font-size: 20px;
+        color: rgb(41, 96, 159);
+      }
+
+      .contact-info {
+        margin-bottom: 100px;
+      }
+      body {
+        background-color: black;
+      }
+      .certificate-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 10%;
+      }
+      .certificate-container-image {
+        width: 700px;
+        border-radius: 50px;
+      }
+
+      .close-button {
+        position: absolute;
+        font-size: 20px;
+        border-radius: 20px;
+        margin-left: 170px;
+        cursor: pointer;
+
+      }
+
+      .hide-page3-content , .hide-header-content{
+        opacity:0;
+      }
+
+      @media screen and (max-width: 932px) {
+        .header {
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+          width: 420px;
+        }
+
+      .header p {
+        font-size: 15px;
+        margin-left: 20px;
+      }
+
+      .right-header {
+        column-gap: 7px;
+      }
+
+      .right-header p {
+        font-size: 12px;
+      }
+
+      .right-header p:hover {
+        font-size: 15px;
+      }
+
+
+      .intro-info {
+        margin-top: 50px;
+        padding-left: 8px;
+        margin-bottom: -60px;
+      }
+
+      .intro-image {
+        margin-top: -380px;
+        margin-left: -300px;
+      }
+
+      .main-width,
+      .role {
+        width: 235px;
+        font-size: 20px;
+      }
+
+      .main-points {
+        font-size: 13px;
+        width: 350px;
+
+      }
+
+      .header {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .right-header {
+        margin-right: 0;
+        margin-top: 10px;
+      }
+
+      .programming-lang {
+        flex-direction: row;
+        gap: 20px;
+      }
+
+      .programming-log {
+        margin-bottom: 5px;
+        height: 30px;
+      }
+
+      .programming-name {
+        display: none;
+      }
+
+      .programming-log:hover+.programming-name {
+        opacity: 1;
+
+      }
+
+      .skill-img-name {
+        margin-top: 15px;
+        height: 30px;
+        background-color: black;
+        border-radius: 50%;
+      }
+
+
+      .skills-section {
+        flex-direction: column;
+        margin-left: 20px;
+      }
+
+      .skills-profile1,
+      .skills-profile2,
+      .skills-profile3 {
+        flex-direction: row;
+        gap: 20px;
+      }
+
+      .percent-num80,
+      .percent-num85,
+      .percent-num70,
+      .percent-num75 {
+        opacity: 1;
+        margin-left: 75px;
+      }
+
+      .skill-img-name img{
+        height: 30px;
+      }
+
+      .skill-name-progress progress{
+        width: 120px;
+      }
+
+      .skills-image {
+          display: none;
+        }
+
+      .certifications {
+        margin-left: 20px;
+        margin-top: 20px;
+        flex-direction: column;
+      }
+
+      .certification-image {
+        display: none;
+      }
+
+      .modal {
+        margin-top: -200px;
+      }
+
+      .certify-button button {
+        padding: 5px;
+        font-size: 12px;
+      }
+
+      .certify-button h3 {
+        font-size : 18px;
+        width: 250px;
+      }
+      .certifications-divide {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+      }
+
+      .project-assemble {
+        width: 300px;
+        margin-left: 12px;
+        padding-right: 25px;
+      }
+
+      .project-name {
+        font-size: 12px;
+      }
+
+      .project-button {
+        font-size: 12px;
+      }
+
+      .social-media {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .social-media-logo-linkedin,
+      .social-media-logo-github,
+      .social-media-logo-instagram {
+        margin-bottom: 5px;
+      }
+
+      .social-media img:hover+p {
+        opacity: 1;
+      }
+
+      .contact-info {
+        font-size: 15px;
+        margin-bottom: 50px;
+      }
+
+      .certificate-container {
+        margin-top: 5%;
+      }
+
+      .certificate-container-image {
+        width: 100%;
+      }
+
+      .close-button {
+        margin-left: 80px;
+      }
+
+      .hide-page3-content,
+      .hide-header-content {
+        opacity: 1;
+      }
+
+      .page3 {
+        flex-direction: column;
+        width: 300px;
+      }
+
+
+    }
+
+
+
+       
+      
+    </style>
+  </head>
+  <body> 
+    <div id="all-pages">
+      <div class="header">
+        <div class="left-header">
+          <p class="page-title-name"> JAGADEESH </p>
+        </div>
+        <div class="right-header">
+          <div class="header-home" onclick = "scrollToPage1();">
+              <p> Home </p> 
+          </div>
+  
+          <div class="header-about" onclick = "scrollToPage2();">
+            <p> About  </p>
+          </div>
+  
+          <div class="header-project" onclick = "scrollToPage3();">
+            <p> Projects </p>
+          </div>
+  
+          <div class="header-contact" onclick = "scrollToPage4();">
+            <p> Contact </p>
+          </div>
+        </div>
+      </div>
+      <div class="page1">
+        
+        <div class="intro-main">
+          <div class = "intro-body">
+            <div class="intro-info"> 
+              <h1 class="main-width"> Hi, I'm <span class="highlight-it">Jagadeesh Udatha <span class="role">a Full Stack Developer</span></h1>
+              <ul class="main-points">
+                <li> With proficiency in Java, Python, JavaScript, HTML, CSS and SQL.</li>
+                <li> I have Completed various projects showcasing my Skills.</li>
+                <li> Hands-on experience in developing web-based applications.</li>
+                <li> Achieved certifications in programming, validating expertise and knowledge in the field.</li>
+              </ul>
+            </div>
+            <div>
+              <img  class = "intro-image" src = "Pic_of_Me.jpg">
+            </div>
+          </div>
+          <div class = "programming-lang">
+            <div>
+              <img class="programming-log" src = "icons8-java-48.png">
+              <p class="programming-name"> Java </p>
+            </div>
+            <div>
+              <img class="programming-log" src = "icons8-python-48.png">
+              <p class="programming-name"> Python </p>
+    
+            </div>
+            <div>
+              <img class="programming-log" src = "icons8-html-48.png">
+              <p class="programming-name"> HTML </p>
+    
+            </div>
+            <div>
+              <img class="programming-log" src = "icons8-css-48.png">
+              <p class="programming-name"> CSS </p>
+              
+            </div>
+            <div>
+              <img class="programming-log" src = "icons8-javascript-48.png">
+              <p class="programming-name"> JavaScript </p>
+    
+            </div>
+            <div>
+              <img class="programming-log" src = "icons8-my-sql-48.png">
+              <p class="programming-name"> mySQL </p>
+              
+            </div>
+          </div>
+    
+        </div>
+      </div>
+      
+  
+      <div id = "page2-part" class="page2">
+        
+      </div>
+
+
+      <div class="page3">
+        <div class="project-assemble">
+          <div class="project-video">
+            <video width="280" height="240" controls autoplay loop>
+              <source src="Slide PortFolio.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="middle-div"> 
+            <p class="project-name"> 
+              Profile Card Hover Effect 
+            </p>
+            <a href = "https://www.linkedin.com/posts/jagadeesh-udatha-109935244_html5-css3-webdevelopment-activity-7092168713377878016-qdmP?utm_source=share&utm_medium=member_desktop"><button class="project-button"> Know More </button></a>
+          </div>
+          
+        </div>
+        <div class="project-assemble">
+          <div class="project-video">
+            <video width="280" height="240" controls autoplay loop>
+              <source src="Linkedin Clone.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="middle-div"> 
+            <p class="project-name"> 
+              Linkedin Clone
+            </p>
+            <a href = "https://www.linkedin.com/posts/jagadeesh-udatha-109935244_webdevelopment-html5-css3-activity-7093846468783964160-WjmX?utm_source=share&utm_medium=member_desktop"><button class="project-button"> Know More </button></a>
+          </div>
+        </div>
+        <div class="project-assemble">
+          <div class="project-video">
+            <video width="280" height="240" controls autoplay loop>
+              <source src="Gaming Webpage.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="middle-div"> 
+            <p class="project-name"> 
+              Gaming Webpage
+            </p>
+            <a href = "https://www.linkedin.com/posts/jagadeesh-udatha-109935244_webdevelopment-javascript-gamedev-activity-7137080731842838528-_nNx?utm_source=share&utm_medium=member_desktop"><button class="project-button"> Know More </button></a>
+          </div>
+        </div>
+      </div>
+      <div class="page4">
+        <div class="social-media">
+          <div>
+            <a href ="https://www.linkedin.com/in/jagadeesh-udatha-109935244/">
+              <img class="social-media-logo-linkedin" src = "icons8-linkedin-48.png">
+            </a> 
+            <p> Linkedin </p>
+          </div>
+          <div>
+            <a href ="https://github.com/Jagadeesh-Udatha">
+              <img class="social-media-logo-github" src="icons8-github-48.png">
+            </a>
+            <p> Github </p>
+          </div>
+          <div>
+            <a href ="https://www.instagram.com/jagadeesh_raja_/">
+              <img class="social-media-logo-instagram" src = "icons8-instagram-48.png">
+            </a>
+            <p> Instagram </p>
+          </div>
+
+        </div>
+        <div class="contact-info">
+          <p> To Connect :</p>
+          <p> Send a Mail to Jagadeeshraja055@gmail.com </p>
+          <p> Check Out My Projects At </p>
+          <a href = "https://github.com/Jagadeesh-Udatha">Github Profie </a>
+        </div>
+        
+        
+      </div>
+    </div>
+    
+    
+    
+    
+    <script src="portfolio.js"> </script>
+
+
+    
+
+
+    
+    
+  </body>
+</html>
